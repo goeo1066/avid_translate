@@ -1,0 +1,7 @@
+{
+  "purpose": "Android App for senior who are not used to mobile apps",
+  "list": [
+    "How are you?",
+    "Ok"
+  ]
+}
