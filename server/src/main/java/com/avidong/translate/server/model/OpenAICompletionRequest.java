@@ -19,14 +19,16 @@ public record OpenAICompletionRequest(
 ) {
     public static final ObjectWriter OBJECT_WRITER = Constants.OBJECT_MAPPER.writerFor(OpenAICompletionRequest.class);
 
-    public static OpenAICompletionRequest ofDefault(List<OpenAICompletionMessage> messages) {
-//        ResponseFormat openAICompletionResponseFormat = new ResponseFormat(
-//                "json_object"
-//        );
+    public static OpenAICompletionRequest ofDefault(String gptModel, List<OpenAICompletionMessage> messages) {
+        ResponseFormat openAICompletionResponseFormat = new ResponseFormat(
+                "json_object"
+        );
+        if (gptModel == null) {
+            gptModel = "gpt-3.5-turbo";
+        }
         return new OpenAICompletionRequest(
                 54321,
-//                "gpt-3.5-turbo-1106",
-                "gpt-3.5-turbo",
+                gptModel,
                 null,
                 messages
         );

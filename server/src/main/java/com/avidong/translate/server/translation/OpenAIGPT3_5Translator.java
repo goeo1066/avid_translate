@@ -78,7 +78,7 @@ public class OpenAIGPT3_5Translator implements TranslationProtocol {
      */
     private String makeBodyValue(TranslationRequest translationRequest) throws JsonProcessingException {
         var messages = Arrays.asList(createSystemMessage(translationRequest), createUserMessage(translationRequest));
-        OpenAICompletionRequest openAICompletionRequest = OpenAICompletionRequest.ofDefault(messages);
+        OpenAICompletionRequest openAICompletionRequest = OpenAICompletionRequest.ofDefault("gpt-3.5-turbo", messages);
         return openAICompletionRequest.toJson();
     }
 
